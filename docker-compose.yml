@@ -11,6 +11,8 @@ services:
             - ./:/var/www
         networks:
             - sistema-getao-network
+
+         
     # nginx
     nginx:
         container_name: servidor-nginx
