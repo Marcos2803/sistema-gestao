@@ -2,16 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Produtos;
+use App\Models\Produto;
 use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
-{
-    public function index ()
+{  
+    
+  public function  __construct(Produto $produto ) {
+    $this->produto = $produto;
+  }   
+     
+    public function index (Request $request)
     {
-      $findProduto = Produtos::all();
+      $pesquisar = $request->pesquisar;
+      //dd($pesquisar);
+      $findProduto = $this->produto->getProdutosPesquisarIndex(search: $pesquisar ?? '');
       //dd($findProduto);
       return view ('pages.produtos.paginacao', compact('findProduto'));
+    }
 
+  public function delete (Request $request){
+      $id = $request->ir;
+      $buscaRegistro = Produto::find($id);
+      $buscaRegistro->delete();
+      //dd($buscaRegistro);
+
+      return response()->json(['success' => true]);
     }
 }
