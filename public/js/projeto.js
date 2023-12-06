@@ -1,6 +1,6 @@
 function deleteRegistrPaginacao (rotaUrl, idDoRegistro) {
     
-if (confirm('Deseja confimar a ex ?')) {
+if (confirm('Deseja confimar a exclusão?')) {
 
     $.ajax({
         url: rotaUrl,
