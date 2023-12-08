@@ -1,24 +1,26 @@
 @extends('index')
 @section ('content')
 
-<form>
+<form class="form" method="POST" action="{{ route ('cadastrar.produto')}}">
+@csrf
   <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
         <h1 class="h2">Criar Novo Produto</h1>
      </div>
 <div class="mb-3">
-    <label  class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-  </div>
+    <label  class="form-label">Nome</label>
+    <input type="text" class="form-control @error('nome')is-invalid @enderror" name="nome">
+ @if ($errors->has ('nome'))
+  <div class="invalid-feedback">{{ $errors->First('nome') }}</div>
+ @endif
+</div>
   <div class="mb-3">
-    <label  class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <label  class="form-label ">Valor</label>
+    <input class="form-control @error('valor')is-invalid @enderror" name="valor">
+ @if ($errors->has ('valor'))
+  <div class="invalid-feedback">{{ $errors->First('valor') }}</div>
+ @endif
   </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+  <button type="submit" class="btn btn-success">Cadastrar</button>
 </form>
 
-@endsection
+ @endsection
