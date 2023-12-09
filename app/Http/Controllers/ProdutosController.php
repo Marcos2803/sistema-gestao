@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\FormRequestProduto;
 use App\Models\Componentes;
 use App\Models\Produto;
+use Brian2694\Toastr\Facades\Toastr;
 use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
@@ -38,13 +39,31 @@ class ProdutosController extends Controller
         $data['valor'] =  $componentes->formatacaoMascaraDinheiroDecimal( $data['valor']);
       
         Produto::create($data);
-        
+        Toastr::success('Gravado com sucesso'); 
         return redirect()->route('produto.index');
   }
   
         return view ('pages.produtos.create');  
   }
-    //atualizar produtos
+    //atualizar produto
 
-  
+    Public function atualizarProduto (FormRequestProduto  $request, $id ){
+      
+      
+     if ($request->method() == "PUT" ){
+      //atualiazar dados
+        $data = $request->all();
+        //dd($data);
+        $componentes = new Componentes();
+        $data['valor'] =  $componentes->formatacaoMascaraDinheiroDecimal( $data['valor']);
+        $buscaRegistro = Produto::find($id);
+        $buscaRegistro->update($data);
+
+       return redirect()->route('produto.index');
+ }
+      // mostra dados
+      $findProduto = Produto::where('id', '=', $id)->First();
+ 
+       return view ('pages.produtos.atualizar', compact('findProduto'));  
+ }
 }

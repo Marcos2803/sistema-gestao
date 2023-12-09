@@ -10,22 +10,23 @@ class Componentes extends Model
     use HasFactory;
 
     public function formatacaoMascaraDinheiroDecimal($valorParaFormatar)
-  {
-    $tamanho = strlen($valorParaFormatar);
-    
-    $dados = str_replace(' , '  ,  ' . ' , $valorParaFormatar);
-    
-       if ($tamanho <= 6) {
-    $dados = str_replace(' , ' ,  ' . ', $valorParaFormatar);
-    
-    } else {
-        if ($tamanho >= 8 || $tamanho <= 10) {    
-     $retiraVirgulaPorPonto = str_replace(',', '.', $valorParaFormatar);
-     $separaPorIndice = explode('.', $retiraVirgulaPorPonto);
-     
-     $dados = $separaPorIndice [0] . $separaPorIndice [1];
-     }
-     }
-    return $dados;
+    {
+      $tamanho = strlen($valorParaFormatar);
+      
+      $dados = str_replace(' , '  ,  ' . ' , $valorParaFormatar);
+      
+         if ($tamanho <= 6) {
+      $dados = str_replace(' , ' ,  ' . ', $valorParaFormatar);
+      
+      } else {
+        if ($tamanho >= 8 && $tamanho <= 10) {
+          $retiraVirgulaPorPonto = str_replace(',', '.', $valorParaFormatar);
+          $separaPorIndice = explode('.', $retiraVirgulaPorPonto);
+
+          $dados = $separaPorIndice[0] . $separaPorIndice[1];
+        }
+       }
+      return $dados;
+    }
   }
-}
+  // verifica pq a condicao 22,55 nao e aceita

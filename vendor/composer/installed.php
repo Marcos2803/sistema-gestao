@@ -3,13 +3,22 @@
         'name' => 'laravel/laravel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => 'e8e2e5f4b95ca85514509bedf3e1bc3c08446c90',
+        'reference' => 'b566d15c1b79d5f98b8f240721c1df0568f46e9f',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
+        'brian2694/laravel-toastr' => array(
+            'pretty_version' => '5.58',
+            'version' => '5.58.0.0',
+            'reference' => '6c7d1c6a959b7042757865d3df0c2f57b912f2c1',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../brian2694/laravel-toastr',
+            'aliases' => array(),
+            'dev_requirement' => false,
+        ),
         'brick/math' => array(
             'pretty_version' => '0.11.0',
             'version' => '0.11.0.0',
@@ -373,7 +382,7 @@
         'laravel/laravel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => 'e8e2e5f4b95ca85514509bedf3e1bc3c08446c90',
+            'reference' => 'b566d15c1b79d5f98b8f240721c1df0568f46e9f',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -748,8 +757,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '3.0.0',
+                0 => '3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(

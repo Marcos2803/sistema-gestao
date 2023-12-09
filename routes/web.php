@@ -17,7 +17,7 @@ use App\Http\Controllers\ProdutosController;
 Route::get('/', function () {
     return view('index');
 });
-
+  /* Produtos*/
 Route::prefix('produtos')->group(function () {
    Route::get('/', [ProdutosController::class, 'index']) ->name('produto.index');
    /* Produto Create*/
@@ -29,3 +29,17 @@ Route::prefix('produtos')->group(function () {
    /*Deleta produto */
    Route::delete('/delete', [ProdutosController::class, 'delete']) ->name('produto.delete');
 });
+   /* Clientes*/
+   Route::prefix('clientes')->group(function () {
+    Route::get('/', [ClientesController::class, 'index']) ->name('Clientes.index');
+    /* Produto Create*/
+    Route::get('/cadastrarCliente', [ClientesController::class, 'cadastrarCliente']) ->name('cadastrar.Cliente');
+    Route::post('/cadastrarcliente', [ClientesController::class, 'cadastrarCliente']) ->name('cadastrar.Cliente');
+    /*Produto Update*/
+    Route::get('/atualizarCliente/{id}', [ClientesController::class, 'atualizarCliente']) ->name('atualizar.Cliente');
+    Route::put('/atualizarCliente/{id}', [ClientesController::class, 'atualizarCliente']) ->name('atualizar.Cliente');
+    /*Deleta produto */
+    Route::delete('/delete', [ClientesController::class, 'delete']) ->name('Cliente.delete');
+ });
+
+
