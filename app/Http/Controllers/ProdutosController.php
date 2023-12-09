@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Http\Requests\FormRequestProduto;
+use App\Models\Componentes;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,7 @@ class ProdutosController extends Controller
       $pesquisar = $request->pesquisar;
       //dd($pesquisar);
       $findProduto = $this->produto->getProdutosPesquisarIndex(search: $pesquisar ?? '');
-      //dd($findProduto);
+      
       return view ('pages.produtos.paginacao', compact('findProduto'));
     }
 
@@ -28,17 +29,22 @@ class ProdutosController extends Controller
       
        return response()->json(['success' => true]);
     }
-
+    // cadastrar produto
     Public function cadastrarProduto (FormRequestProduto  $request ){
-      //dd($request);
+      
        if ($request->method() == "POST" ){
-        $data = $request->all();
+       $data = $request->all();
+        $componentes = new Componentes();
+        $data['valor'] =  $componentes->formatacaoMascaraDinheiroDecimal( $data['valor']);
+      
         Produto::create($data);
-    
+        
         return redirect()->route('produto.index');
   }
   
         return view ('pages.produtos.create');  
   }
+    //atualizar produtos
+
+  
 }
-//FormRequestProduto 

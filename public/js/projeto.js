@@ -30,3 +30,4 @@ if (confirm('Deseja confimar a exclusão?')) {
         } 
     }
 
+    $('#mascara_valor').mask('#.##0,00',{ reverse: true})//verifica cdn e codigo
