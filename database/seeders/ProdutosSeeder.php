@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\Produtos;
+use App\Models\Produto;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,7 +13,7 @@ class ProdutosSeeder extends Seeder
      */
     public function run(): void
     {
-      Produtos::create(
+      Produto::create(
         [
            'nome' => 'marcos',
            'valor' => '20.00'

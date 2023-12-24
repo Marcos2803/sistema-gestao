@@ -17,13 +17,15 @@ class ProdutosController extends Controller
     public function index (Request $request)
     {
       $pesquisar = $request->pesquisar;
-      //dd($pesquisar);
+      //dd($request);
       $findProduto = $this->produto->getProdutosPesquisarIndex(search: $pesquisar ?? '');
-      
+
+      //dd($pesquisar);
       return view ('pages.produtos.paginacao', compact('findProduto'));
     }
 
   public function delete (Request $request){
+    
       $id = $request->id;
       $buscaRegistro = Produto::find($id);
       $buscaRegistro->delete();

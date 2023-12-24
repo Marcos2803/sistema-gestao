@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutosController;
+use App\Http\Controllers\ClientesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,17 +30,15 @@ Route::prefix('produtos')->group(function () {
    /*Deleta produto */
    Route::delete('/delete', [ProdutosController::class, 'delete']) ->name('produto.delete');
 });
-   /* Clientes*/
-   Route::prefix('clientes')->group(function () {
-    Route::get('/', [ClientesController::class, 'index']) ->name('Clientes.index');
-    /* Produto Create*/
-    Route::get('/cadastrarCliente', [ClientesController::class, 'cadastrarCliente']) ->name('cadastrar.Cliente');
-    Route::post('/cadastrarcliente', [ClientesController::class, 'cadastrarCliente']) ->name('cadastrar.Cliente');
-    /*Produto Update*/
-    Route::get('/atualizarCliente/{id}', [ClientesController::class, 'atualizarCliente']) ->name('atualizar.Cliente');
-    Route::put('/atualizarCliente/{id}', [ClientesController::class, 'atualizarCliente']) ->name('atualizar.Cliente');
-    /*Deleta produto */
-    Route::delete('/delete', [ClientesController::class, 'delete']) ->name('Cliente.delete');
- });
-
-
+/* Clientes*/
+Route::prefix('clientes')->group(function () {
+   Route::get('/', [ClientesController::class, 'index']) ->name('cliente.index');
+   /* Produto Create*/
+   Route::get('/cadastrarCliente', [ClientesController::class, 'cadastrarCliente']) ->name('cadastrar.cliente');
+   Route::post('/cadastrarCliente', [ClientesController::class, 'cadastrarCliente']) ->name('cadastrar.cliente');
+   /*Produto Update*/
+   Route::get('/atualizarCliente/{id}', [ClientesController::class, 'atualizarCliente']) ->name('atualizar.cliente');
+   Route::put('/atualizarCliente/{id}', [ClientesController::class, 'atualizarCliente']) ->name('atualizar.cliente');
+   /*Deleta produto */
+   Route::delete('/delete', [ClientesController::class, 'delete']) ->name('cliente.delete');
+});
