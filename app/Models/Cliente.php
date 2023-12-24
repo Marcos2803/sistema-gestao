@@ -20,14 +20,13 @@ class Cliente extends Model
 
     public function getClientesPesquisarIndex(string $search = '')
     {
-      $clientes = $this->where(function ($query) use ($search) {
+      $cliente = $this->where(function ($query) use ($search) {
         if ($search){
             $query->where('nome', $search);
             $query->orWhere('nome','LIKE',"%{$search}%");
         }
-       }
-       )->get();
-       return $clientes;
+       })->get();
+       return $cliente;
 
     }
 

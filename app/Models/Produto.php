@@ -17,7 +17,7 @@ class Produto extends Model
     public function getProdutosPesquisarIndex(string $search = '')
     {
       $produto = $this->where(function ($query) use ($search) {
-        dd($search);
+        //dd($search);
         if ($search){
             $query->where('nome', $search);
             $query->orWhere('nome','LIKE',"%{$search}%");
