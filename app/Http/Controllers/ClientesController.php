@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Requests\FormRequestClientes;
+use App\Http\Requests\FormRequestCliente;
 use App\Models\Componentes;
 use App\Models\Cliente;
 use Brian2694\Toastr\Facades\Toastr;
@@ -30,7 +30,7 @@ class ClientesController extends Controller
            return response()->json(['success' => true]);
         }
         // cadastrar produto
-        Public function cadastrarCliente (Request  $request ){
+        Public function cadastrarCliente (FormRequestCliente  $request ){
           
            if ($request->method() == "POST" ){
            $data = $request->all();

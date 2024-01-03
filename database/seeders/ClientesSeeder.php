@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+
 use App\Models\Cliente;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,7 +19,7 @@ class ClientesSeeder extends Seeder
            'email' => 'fgshshs@gmail.com',
            'endereco'=> 'rua x',
            'logradouro'=> 'rua z',
-           'cep' => '36363'
+           'cep' => '36363',
            'bairro' => 'logo'
 
         ]

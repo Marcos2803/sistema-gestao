@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\ClientesController;
+use App\Http\Controllers\VendasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,12 +34,21 @@ Route::prefix('produtos')->group(function () {
 /* Clientes*/
 Route::prefix('clientes')->group(function () {
    Route::get('/', [ClientesController::class, 'index']) ->name('cliente.index');
-   /* Produto Create*/
+   /* clientes Create*/
    Route::get('/cadastrarCliente', [ClientesController::class, 'cadastrarCliente']) ->name('cadastrar.cliente');
    Route::post('/cadastrarCliente', [ClientesController::class, 'cadastrarCliente']) ->name('cadastrar.cliente');
-   /*Produto Update*/
+   /*clientes Update*/
    Route::get('/atualizarCliente/{id}', [ClientesController::class, 'atualizarCliente']) ->name('atualizar.cliente');
    Route::put('/atualizarCliente/{id}', [ClientesController::class, 'atualizarCliente']) ->name('atualizar.cliente');
-   /*Deleta produto */
+   /*Deleta clientes */
    Route::delete('/delete', [ClientesController::class, 'delete']) ->name('cliente.delete');
+});
+
+/* Vendass*/
+Route::prefix('vendas')->group(function () {
+   Route::get('/', [VendasController::class, 'index']) ->name('venda.index');
+   /* vendas Create*/
+   Route::get('/cadastrarVenda', [VendasController::class, 'cadastrarVenda']) ->name('cadastrar.venda');
+   Route::post('/cadastrarVenda', [VendasController::class, 'cadastrarVenda']) ->name('cadastrar.venda');
+
 });

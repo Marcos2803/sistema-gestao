@@ -9,25 +9,31 @@ class Venda extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'nome',
-        'email',
-        'endereco',
-        'logradouro',
-        'cep',
-        'bairro',
+        'numero_da_venda',
+        'produto-id',
+        'cliente-id'
+        
     ];
 
-    public function getClientesPesquisarIndex(string $search = '')
-    {
-      $cliente = $this->where(function ($query) use ($search) {
-        if ($search){
-            $query->where('nome', $search);
-            $query->orWhere('nome','LIKE',"%{$search}%");
-        }
-       })->get();
-       return $cliente;
+    public function produto(){
+       return this->belongsTo(Produto::class);
 
     }
+    public function cliente(){
+        return this->belongsTo(Cliente::class);
+ 
+     }
 
-}
-
+     public function getVendasPesquisarIndex(string $search = '')
+    {
+      $venda = $this->where(function ($query) use ($search) {
+        //dd($search);
+        if ($search){
+            $query->where('numero_da_venda', $search);
+            $query->orWhere('numero_da_venda','LIKE',"%{$search}%");
+        }
+       })->get();
+       return $venda;
+       
+    }
+    }

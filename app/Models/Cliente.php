@@ -15,12 +15,13 @@ class Cliente extends Model
         'endereco',
         'logradouro',
         'cep',
-        'bairro',
+        'bairro'
     ];
 
     public function getClientesPesquisarIndex(string $search = '')
     {
       $cliente = $this->where(function ($query) use ($search) {
+        //dd($search);
         if ($search){
             $query->where('nome', $search);
             $query->orWhere('nome','LIKE',"%{$search}%");
@@ -31,3 +32,4 @@ class Cliente extends Model
     }
 
 }
+

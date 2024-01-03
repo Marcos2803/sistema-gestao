@@ -32,7 +32,8 @@
                 @foreach ($findProduto as $produto)
            <tr>
               <td>{{$produto->nome}}</td>
-              <td>{{$produto->'R$'.''. number_format($produto->valor, 2, ',' ,'.')}}</td>
+              <td>R$ {{ number_format($produto->valor, 2, ',' ,'.') }}</td>
+
               <td>
                <a href="{{  route('atualizar.produto', $produto->id) }}" class="btn btn-light btn-sm">
                   Editar
