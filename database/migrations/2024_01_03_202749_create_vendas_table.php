@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('vendas', function (Blueprint $table) {
             $table->id();
-            $table->integer('numero-da_venda');
-            $table->foreignId('produto_id')-.constrained('produtos');
-            $table->foreignId('cliente_id')-.constrained('clientes');
+            $table->integer('numero_da_venda');
+            $table->foreignId('produto_id')->constrained('produtos');
+            $table->foreignId('cliente_id')->constrained('clientes');
             $table->timestamps();
         });
     }

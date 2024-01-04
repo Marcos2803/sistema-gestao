@@ -18,6 +18,7 @@ class VendasSeeder extends Seeder
                'produto-id' => 2,
                'cliente-id' => 5
             ]
-          
+        );
+    
     }
 }

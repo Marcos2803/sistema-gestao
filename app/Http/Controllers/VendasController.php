@@ -41,7 +41,8 @@ class VendasController extends Controller
             Toastr::success('Gravado com sucesso'); 
             return redirect()->route('venda.index');
       }
-      
+            $findNumeracao = Venda::max('numero_da_venda') + 1;
+            
             return view ('pages.vendas.create');  
       }
 }
